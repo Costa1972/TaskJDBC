@@ -25,6 +25,12 @@ public class UserDaoJDBCImpl implements UserDao {
             System.out.println("Таблица создана!");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        } finally {
+            try {
+                getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
@@ -34,6 +40,12 @@ public class UserDaoJDBCImpl implements UserDao {
             System.out.println("Таблица удалена!");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
+        } finally {
+            try {
+                getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
         }
     }
 
