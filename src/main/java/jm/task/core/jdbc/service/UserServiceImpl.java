@@ -61,9 +61,11 @@ public class UserServiceImpl implements UserService {
     }
 
     public void removeUserById(long id) {
+        Long l = id;
+        String query = "DELETE FROM users WHERE usersId = " + id;
         try {
             Statement statement = getConnection().createStatement();
-            statement.execute("DELETE FROM users WHERE usersId = id");
+            statement.execute(query);
         } catch (SQLException e) {
             e.printStackTrace();
         } finally {
