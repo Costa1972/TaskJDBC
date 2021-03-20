@@ -21,7 +21,6 @@ public class Util {
         }
         try {
             connection = DriverManager.getConnection(dbURL, dbUSERNAME, dbPASSWORD);
-            System.out.println("Соединение с базой данных установлено");
         } catch (SQLException e) {
             System.out.println(e.getMessage());
         }
