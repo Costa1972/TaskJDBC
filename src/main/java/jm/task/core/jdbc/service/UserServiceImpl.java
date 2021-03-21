@@ -97,6 +97,18 @@ public class UserServiceImpl implements UserService {
     }
 
     public void cleanUsersTable() {
-
+        try {
+            Statement statement = getConnection().createStatement();
+            statement.execute("TRUNCATE TABLE users");
+            System.out.println("БД очищена.");
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }finally {
+            try {
+                getConnection().close();
+            } catch (SQLException e) {
+                e.printStackTrace();
+            }
+        }
     }
 }
